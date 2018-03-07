@@ -1,0 +1,58 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+      <servlet-name>SkillsServlet</servlet-name>
+      <servlet-class>controller.servlets.SkillsServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeveloperServlet</servlet-name>
+        <servlet-class>controller.servlets.DeveloperServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ProjectServlet</servlet-name>
+        <servlet-class>controller.servlets.ProjectServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CompanyServlet</servlet-name>
+        <servlet-class>controller.servlets.CompanyServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CustomerServlet</servlet-name>
+        <servlet-class>controller.servlets.CustomerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+    <servlet-name>SkillsServlet</servlet-name>
+    <url-pattern>/skill</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeveloperServlet</servlet-name>
+        <url-pattern>/developer</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ProjectServlet</servlet-name>
+        <url-pattern>/project</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CompanyServlet</servlet-name>
+        <url-pattern>/company</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CustomerServlet</servlet-name>
+        <url-pattern>/customer</url-pattern>
+    </servlet-mapping>
+
+</web-app>

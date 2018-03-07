@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <!-- Assume test is the database name -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/WebApp</property>
+        <property name="hibernate.connection.username">mysql</property>
+        <property name="hibernate.connection.password">mysql</property>
+        <property name="hibernate.id.new_generator_mappings">false</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.reconnect">true</property>
+
+
+        <!-- List of XML mapping files -->
+
+        <mapping class="model.Skill"/>
+        <mapping class="model.Developer"/>
+        <mapping class="model.Project"/>
+        <mapping class="model.Company"/>
+        <mapping class="model.Customer"/>
+
+    </session-factory>
+</hibernate-configuration>
