@@ -2,19 +2,20 @@ package controller.servlets;
 
 import model.Skill;
 import service.SkillService;
+import view.PageView;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-public class SkillsServlet extends CoreServlet{
+public class SkillsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        showList(req, resp);
+        PageView pageView = new PageView();
+        pageView.showList(new Skill(), req,resp);
     }
 
     @Override
@@ -53,16 +54,7 @@ public class SkillsServlet extends CoreServlet{
                 }
                 break;
         }
-
-        showList(req, resp);
-    }
-
-    public void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        SkillService skillService = new SkillService();
-        List<Skill> skills = skillService.getAll();
-        req.setAttribute("objects", skills);
-        req.setAttribute("entity", "skill");
-        RequestDispatcher view = req.getRequestDispatcher(MAIN_JSP);
-        view.forward(req, resp);
+        PageView pageView = new PageView();
+        pageView.showList(new Skill(), req,resp);
     }
 }

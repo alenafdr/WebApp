@@ -2,18 +2,19 @@ package controller.servlets;
 
 import model.Company;
 import service.CompanyService;
+import view.PageView;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-public class CompanyServlet extends CoreServlet {
+public class CompanyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        showList(req,resp);
+        PageView pageView = new PageView();
+        pageView.showList(new Company(), req,resp);
     }
 
     @Override
@@ -57,15 +58,9 @@ public class CompanyServlet extends CoreServlet {
                 }
                 break;
         }
-        showList(req,resp);
+        PageView pageView = new PageView();
+        pageView.showList(new Company(), req,resp);
     }
 
-    public void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        CompanyService companyService = new CompanyService();
-        List<Company> companies = companyService.getAll();
-        req.setAttribute("objects", companies);
-        req.setAttribute("entity", "company");
-        RequestDispatcher view = req.getRequestDispatcher(MAIN_JSP);
-        view.forward(req, resp);
-    }
+
 }

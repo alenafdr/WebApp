@@ -1,7 +1,7 @@
 package service;
 
 import model.Skill;
-import service.DAO.HibernateSkillDAO;
+import DAO.HibernateSkillDAO;
 
 import java.util.List;
 

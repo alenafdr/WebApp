@@ -2,8 +2,8 @@ package service;
 
 import model.Customer;
 import model.Project;
-import service.DAO.HibernateCustomerDAO;
-import service.DAO.HibernateProjectDAO;
+import DAO.HibernateCustomerDAO;
+import DAO.HibernateProjectDAO;
 
 import java.util.HashSet;
 import java.util.List;

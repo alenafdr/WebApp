@@ -2,18 +2,19 @@ package controller.servlets;
 
 import model.Project;
 import service.ProjectService;
+import view.PageView;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-public class ProjectServlet extends CoreServlet {
+public class ProjectServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        showList(req,resp);
+        PageView pageView = new PageView();
+        pageView.showList(new Project(), req,resp);
     }
 
     @Override
@@ -56,15 +57,7 @@ public class ProjectServlet extends CoreServlet {
                 }
                 break;
         }
-        showList(req,resp);
-    }
-
-    public void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        ProjectService projectService = new ProjectService();
-        List<Project> projects = projectService.getAll();
-        req.setAttribute("objects", projects);
-        req.setAttribute("entity", "project");
-        RequestDispatcher view = req.getRequestDispatcher(MAIN_JSP);
-        view.forward(req, resp);
+        PageView pageView = new PageView();
+        pageView.showList(new Project(), req,resp);
     }
 }

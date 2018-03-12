@@ -2,8 +2,8 @@ package service;
 
 import model.Developer;
 import model.Skill;
-import service.DAO.HibernateDeveloperDAO;
-import service.DAO.HibernateSkillDAO;
+import DAO.HibernateDeveloperDAO;
+import DAO.HibernateSkillDAO;
 
 import java.util.HashSet;
 import java.util.List;

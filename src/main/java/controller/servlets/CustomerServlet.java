@@ -2,18 +2,19 @@ package controller.servlets;
 
 import model.Customer;
 import service.CustomerService;
+import view.PageView;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-public class CustomerServlet extends CoreServlet {
+public class CustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        showList(req,resp);
+        PageView pageView = new PageView();
+        pageView.showList(new Customer(), req,resp);
     }
 
     @Override
@@ -58,15 +59,7 @@ public class CustomerServlet extends CoreServlet {
                 }
                 break;
         }
-        showList(req,resp);
-    }
-
-    public void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        CustomerService customerService = new CustomerService();
-        List<Customer> customers = customerService.getAll();
-        req.setAttribute("objects", customers);
-        req.setAttribute("entity", "customer");
-        RequestDispatcher view = req.getRequestDispatcher(MAIN_JSP);
-        view.forward(req, resp);
+        PageView pageView = new PageView();
+        pageView.showList(new Customer(), req,resp);
     }
 }
