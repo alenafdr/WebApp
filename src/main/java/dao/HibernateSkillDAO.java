@@ -4,11 +4,10 @@ package dao;
 import model.Skill;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import service.HibernateGeneric;
 
 import java.util.List;
 
-public class HibernateSkillDAO extends HibernateGeneric implements GenericDAO<Skill, Integer>{
+public class HibernateSkillDAO extends HibernateGeneric implements GenericDAO<Skill, Integer> {
 
     @Override
     public boolean save(Skill skill){

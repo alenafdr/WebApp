@@ -3,12 +3,11 @@ package dao;
 import model.Customer;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import service.HibernateGeneric;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HibernateCustomerDAO extends HibernateGeneric implements GenericDAO<Customer, Integer>{
+public class HibernateCustomerDAO extends HibernateGeneric implements GenericDAO<Customer, Integer> {
 
     public HibernateCustomerDAO() {
     }

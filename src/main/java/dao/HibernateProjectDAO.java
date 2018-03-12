@@ -3,7 +3,6 @@ package dao;
 import model.Project;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import service.HibernateGeneric;
 
 import java.util.ArrayList;
 import java.util.List;
